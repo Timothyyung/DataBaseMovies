@@ -157,6 +157,9 @@ In the script that generated the input for the database I exclude all invalid da
 
 ### Find the distribution of the movies across different decades.
 
+![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Decade.png 'Decade Distribution')
+
+### Find the distribution of the genres across the movies.
 
 
 
