@@ -1,5 +1,6 @@
 # Movie Database Project
 Timothy yung
+
 CS333 Introduction to Databases
 
 ___________________________________________
