@@ -38,7 +38,6 @@ _____________
 # Loading the Database
 
 ## List all the tables:
-                       List of relations
  Schema |   Name    | Type  | Owner |    Size    | Description 
 --------|-----------|-------|-------|----------- |--------------
  public | genre     | table | scott | 8192 bytes | 
@@ -47,5 +46,115 @@ _____________
  public | ratings   | table | scott | 910 MB     | 
  public | tags      | table | scott | 5296 kB    | 
  public | users     | table | scott | 232 kB     | 
+ 
+ ## Data types of my tables
+
+### Movies
+  Column   |  Type   | Collation | Nullable | Default 
+-----------|---------|-----------|----------|---------
+ movieid   | integer |           | not null | 
+ moviename | text    |           |          | 
+ year      | integer |           |          | 
+
+Indexes:
+    "movies_pkey" PRIMARY KEY, btree (movieid)
+
+### Genres
+ Column | Type | Collation | Nullable | Default 
+--------|------|-----------|----------|---------
+ genre  | text |           | not null |
+ 
+### Has_Genre
+ Column  |         Type          | Collation | Nullable | Default 
+---------|-----------------------|-----------|----------|---------
+ movieid | integer               |           | not null | 
+ genre   | character varying(40) |           | not null | 
+
+Indexes:
+    "has_genre_pkey" PRIMARY KEY, btree (movieid, genre)
+
+ ### Tags
+   Column   |          Type          | Collation | Nullable | Default 
+-----------|------------------------|-----------|----------|---------
+ userid    | integer                |           |          | 
+ movieid   | integer                |           |          | 
+ tags      | character varying(300) |           |          | 
+ timestamp | integer                |           |          | 
+ 
+### Ratings
+  Column   |       Type       | Collation | Nullable | Default 
+-----------|------------------|-----------|----------|---------
+ userid    | integer          |           | not null | 
+ movieid   | integer          |           | not null | 
+ rating    | double precision |           |          | 
+ timestamp | integer          |           |          | 
+
+Indexes:
+    "ratings_pkey" PRIMARY KEY, btree (userid, movieid)
+
+### User
+ Column |  Type   | Collation | Nullable | Default 
+--------|---------|-----------|----------|---------
+ userid | integer |           | not null | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (userid)
+    
+_________
+
+
+## Value Counting
+| Table | Count | 
+|-------|-------|
+| Genre | 18 |
+| Movies| 10681|
+| Ratings| 10000054|
+| Tags | 95580|
+| Users| 5711|
+| Has_Genre| 21564|
+
+______
+
+## Basic query tests:
+
+### Get Ten Movies (select * from movies limit 10)
+
+ movieid |          moviename          | year 
+---------|-----------------------------|------
+       1 | Toy Story                   | 1995
+       2 | Jumanji                     | 1995
+       3 | Grumpier Old Men            | 1995
+       4 | Waiting to Exhale           | 1995
+       5 | Father of the Bride Part II | 1995
+       6 | Heat                        | 1995
+       7 | Sabrina                     | 1995
+       8 | Tom and Huck                | 1995
+       9 | Sudden Death                | 1995
+      10 | GoldenEye                   | 1995
+
+### Get count of non null values (select count(moviename) from movies)
+
+|count| 
+|-------|
+ |10681|
+ 
+ _____
+## Questions of about the data
+
+### Find any null or invalid values in the dataset
+
+In the script that generated the input for the database I exclude all invalid data types and null values so there would be no null or invalid data points inside my data base. After running the test this is shown to be true.
+
+Sample Query:</br>
+ >>select count(*) 
+ from ratings 
+ where movieid IS NULL or userid IS NULL or rating IS NULL or timestamp IS NULL;
+
+
+
+
+
+
+
+
 
 
