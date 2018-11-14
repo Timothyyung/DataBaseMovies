@@ -153,7 +153,7 @@ In the script that generated the input for the database I exclude all invalid da
 
 ### Find the distribution of the values for attribute "year" of table "movies".
 
-
+![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Histogram%20of%20Count.png 'Year Distribution')
 
 
 
