@@ -20,3 +20,15 @@ Databases are important to the functionality of everyday life. We use databases 
 # Entity Relationship Diagram
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Movies.jpg 'Movies')
 
+# DataBase Schema
+
+|Entities|Schema|
+|-----|----------|
+|Movies|MovieId,Title,Year|
+|Genre|Genre|
+|User|UserId|
+
+|Relationship|Schema|
+|Ratings|UserId, MoviedId, Rating, Timestamp|
+|Tags|UserId, MovieId, Tags, Timestamp|
+|Has_Genre| MovieID, Genre|
