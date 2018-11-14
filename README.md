@@ -119,18 +119,18 @@ ______
 
 ### Get Ten Movies (select * from movies limit 10)
 
- movieid |          moviename          | year 
----------|-----------------------------|------
-       1 | Toy Story                   | 1995
-       2 | Jumanji                     | 1995
-       3 | Grumpier Old Men            | 1995
-       4 | Waiting to Exhale           | 1995
-       5 | Father of the Bride Part II | 1995
-       6 | Heat                        | 1995
-       7 | Sabrina                     | 1995
-       8 | Tom and Huck                | 1995
-       9 | Sudden Death                | 1995
-      10 | GoldenEye                   | 1995
+ |movieid |          moviename          | year| 
+|---------|-----------------------------|------|
+|       1 | Toy Story                   | 1995|
+|       2 | Jumanji                     | 1995|
+|       3 | Grumpier Old Men            | 1995|
+|       4 | Waiting to Exhale           | 1995|
+|       5 | Father of the Bride Part II | 1995|
+|       6 | Heat                        | 1995|
+|       7 | Sabrina                     | 1995|
+|       8 | Tom and Huck                | 1995|
+|       9 | Sudden Death                | 1995|
+|      10 | GoldenEye                   | 1995|
 
 ### Get count of non null values (select count(moviename) from movies)
 
