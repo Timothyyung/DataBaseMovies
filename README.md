@@ -60,10 +60,10 @@ Indexes:
     "movies_pkey" PRIMARY KEY, btree (movieid)
 
 ### Genres
- Column | Type | Collation | Nullable | Default 
+ |Column | Type | Collation | Nullable | Default |
 
---------|------|-----------|----------|---------
- genre  | text |           | not null |
+|--------|------|-----------|----------|---------|
+ |genre  | text |           | not null ||
  
 ### Has_Genre
  Column  |         Type          | Collation | Nullable | Default 
