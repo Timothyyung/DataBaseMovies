@@ -40,7 +40,7 @@ _____________
 ## List all the tables:
                        List of relations
  Schema |   Name    | Type  | Owner |    Size    | Description 
---------+-----------+-------+-------+------------+-------------
+--------|-----------|-------|-------|----------- |--------------
  public | genre     | table | scott | 8192 bytes | 
  public | has_genre | table | scott | 952 kB     | 
  public | movies    | table | scott | 664 kB     | 
