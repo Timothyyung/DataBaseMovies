@@ -96,6 +96,7 @@ Indexes:
  Column |  Type   | Collation | Nullable | Default 
 --------|---------|-----------|----------|---------
  userid | integer |           | not null | 
+ 
 Indexes:
     "users_pkey" PRIMARY KEY, btree (userid)
     
