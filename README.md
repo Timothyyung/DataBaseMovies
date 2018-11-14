@@ -29,6 +29,7 @@ Databases are important to the functionality of everyday life. We use databases 
 |User|UserId|
 
 |Relationship|Schema|
+|-----|----------|
 |Ratings|UserId, MoviedId, Rating, Timestamp|
 |Tags|UserId, MovieId, Tags, Timestamp|
 |Has_Genre| MovieID, Genre|
