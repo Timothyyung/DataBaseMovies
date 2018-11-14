@@ -145,8 +145,8 @@ ______
 In the script that generated the input for the database I exclude all invalid data types and null values so there would be no null or invalid data points inside my data base. After running the test this is shown to be true.
 
 Sample Query:</br>
- >>select count(*) 
- from ratings 
+ >>select count(*) </br>
+ from ratings </br>
  where movieid IS NULL or userid IS NULL or rating IS NULL or timestamp IS NULL;
 
 
