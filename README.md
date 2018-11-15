@@ -152,7 +152,7 @@ In the script that generated the input for the database I exclude all invalid da
  where movieid IS NULL or userid IS NULL or rating IS NULL or timestamp IS NULL;
 
 
-### Find the distribution of the values for attribute "year" of table "movies". ![Year Table (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
+### Find the distribution of the values for attribute "year" of table "movies".</br> ![Year Table (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
 
 >select year, count(*)</br> 
 from movies</br>
