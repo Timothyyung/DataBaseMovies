@@ -165,8 +165,10 @@ In the script that generated the input for the database I exclude all invalid da
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Genre.png 'Genre Distribution')
 
 
-### Find the distribution of the ratingsselect count(distinct movieid) from movies where exists (select movieid from ratings group by ratings.movieid having ratings.movieid = movies.movieid
-) and exists ( select movieid from tags group by tags.movieid having tags.movieid = movies.movieid);
+### Find the distribution of the ratings
+>select count(distinct movieid)</br> 
+from movies</br> 
+where exists (select movieid from ratings group by ratings.movieid having ratings.movieid = movies.movieid) and exists ( select movieid from tags group by tags.movieid having tags.movieid = movies.movieid);
 
 
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Rating.png 'Rating Distribution')
