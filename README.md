@@ -157,7 +157,7 @@ In the script that generated the input for the database I exclude all invalid da
 >select year, count(*)</br> 
 from movies</br>
 group by year;
-
+![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
 ![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Histogram%20of%20Count.png 'Year Distribution')
 
 ### Find the distribution of the movies across different decades.
