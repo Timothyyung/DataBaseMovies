@@ -162,7 +162,7 @@ group by year;
 
 ![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Histogram%20of%20Count.png 'Year Distribution')
 
-### Find the distribution of the movies across different decades.
+### Find the distribution of the movies across different decades. 
 
 >select (year%100)/10, count(*)</br> 
 from movies</br> 
@@ -170,7 +170,7 @@ group by (year%100)/10;
 
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Decade.png 'Decade Distribution')
 
-### Find the distribution of the genres across the movies.
+### Find the distribution of the genres across the movies. 
 
 >select genre, count (*)</br>
 from has_genre</br>
@@ -179,7 +179,7 @@ group by genre;
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Genre.png 'Genre Distribution')
 
 
-### Find the distribution of the ratings
+### Find the distribution of the ratings </br> ![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/rating_dist.csv 'Ratings Table')
 
 >select count(distinct movieid)</br> 
 from movies</br> 
