@@ -179,7 +179,7 @@ group by genre;
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Genre.png 'Genre Distribution')
 
 
-### Find the distribution of the ratings </br> ![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/rating_dist.csv 'Ratings Table')
+### Find the distribution of the ratings </br> ![Ratings Distribution Table (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/rating_dist.csv 'Ratings Table')
 
 >select count(distinct movieid)</br> 
 from movies</br> 
