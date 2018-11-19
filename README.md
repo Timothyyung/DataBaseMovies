@@ -158,7 +158,7 @@ In the script that generated the input for the database I exclude all invalid da
  where movieid IS NULL or userid IS NULL or rating IS NULL or timestamp IS NULL;
 
 
-### Find the distribution of the values for attribute "year" of table "movies".</br> ![Year Distibution Query Result (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
+### Find the distribution of the values for attribute "year" of table "movies".</br> ![Year Distribution Query Result (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
 
 >select year, count(*)</br> 
 from movies</br>
@@ -168,7 +168,7 @@ group by year;
 
 ![Alt_Text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Histogram%20of%20Count.png 'Year Distribution')
 
-### Find the distribution of the movies across different decades. 
+### Find the distribution of the movies across different decades.</br> ![Decade Distribution Query Results (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Decade.csv "Decade Table')
 
 >select (year%100)/10, count(*)</br> 
 from movies</br> 
@@ -176,7 +176,7 @@ group by (year%100)/10;
 
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Decade.png 'Decade Distribution')
 
-### Find the distribution of the genres across the movies.</br> ![Genres Query Results]('https://github.com/Timothyyung/DataBaseMovies/blob/master/images/genre_distribution.csv 'Genres Query Results )
+### Find the distribution of the genres across the movies.</br> ![Genres Query Results](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/genre_distribution.csv 'Genres Query Results' )
 
 >select genre, count (*)</br>
 from has_genre</br>
