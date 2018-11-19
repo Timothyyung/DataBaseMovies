@@ -43,6 +43,16 @@ _____________
 3) Rename the paths in the copy command located in tyung-init.sql to the paths of the files on local computer. tyung-init.sql generates the tables and populates them
 4) Run tyung-query.sql to run all the set up queries.
 
+## What is in this github?
+>Data Folder:
+>>Genres.txt: Has the list of all the 19 genres to be loaded into the database
+>>mg_relation.csv: Has the list of the movie to genre relation, Contains MovieId and related Genre
+>>new_movies.csv: Movies after they have been changed to create a more consistent delimeter ( we used the csv format )
+>>ratings.7z: zipped form of ratings so it can be uploaded to github. (unzip before use)
+>>tags.csv: Tags after they have been changed to csv format for more a more consistent delimeter
+>>users.txt: List all the user IDs
+
+>
 ## List all the tables:
  Schema |   Name    | Type  | Owner |    Size    | Description 
 --------|-----------|-------|-------|----------- |--------------
