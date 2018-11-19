@@ -176,7 +176,7 @@ group by (year%100)/10;
 
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Decade.png 'Decade Distribution')
 
-### Find the distribution of the genres across the movies.</br> ![Genres Query Results](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/genre_distribution.csv 'Genres Query Results )
+### Find the distribution of the genres across the movies.</br> ![Genres Query Results]('https://github.com/Timothyyung/DataBaseMovies/blob/master/images/genre_distribution.csv 'Genres Query Results )
 
 >select genre, count (*)</br>
 from has_genre</br>
