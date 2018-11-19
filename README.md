@@ -37,6 +37,12 @@ Databases are important to the functionality of everyday life. We use databases 
 _____________
 # Loading the Database
 
+>Instructions to run my queries:</br>
+1) Generate the new files by running the make_files.py script in the old data folder (These files are already in the Data folder)</br>
+2) Unzip the ratings file ( the file is too large to import into github normally )
+3) Rename the paths in the copy command located in tyung-init.sql to the paths of the files on local computer. tyung-init.sql generates the tables and populates them
+4) Run tyung-query.sql to run all the set up queries.
+
 ## List all the tables:
  Schema |   Name    | Type  | Owner |    Size    | Description 
 --------|-----------|-------|-------|----------- |--------------
@@ -152,7 +158,7 @@ In the script that generated the input for the database I exclude all invalid da
  where movieid IS NULL or userid IS NULL or rating IS NULL or timestamp IS NULL;
 
 
-### Find the distribution of the values for attribute "year" of table "movies".</br> ![Year Table (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
+### Find the distribution of the values for attribute "year" of table "movies".</br> ![Year Distibution Query Result (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/yearcount.csv 'Year Table')
 
 >select year, count(*)</br> 
 from movies</br>
@@ -170,7 +176,7 @@ group by (year%100)/10;
 
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Decade.png 'Decade Distribution')
 
-### Find the distribution of the genres across the movies. 
+### Find the distribution of the genres across the movies.</br> ![Genres Query Results](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/genre_distribution.csv 'Genres Query Results )
 
 >select genre, count (*)</br>
 from has_genre</br>
@@ -179,7 +185,7 @@ group by genre;
 ![Alt_text](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/Count%20vs.%20Genre.png 'Genre Distribution')
 
 
-### Find the distribution of the ratings </br> ![Ratings Distribution Table (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/rating_dist.csv 'Ratings Table')
+### Find the distribution of the ratings </br> ![Ratings Query Result (Click Me)](https://github.com/Timothyyung/DataBaseMovies/blob/master/images/rating_dist.csv 'Ratings Table')
 
 >select count(distinct movieid)</br> 
 from movies</br> 
