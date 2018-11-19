@@ -44,13 +44,15 @@ _____________
 4) Run tyung-query.sql to run all the set up queries.
 
 ## What is in this github?
->Data Folder:
->>Genres.txt: Has the list of all the 19 genres to be loaded into the database<br>
->>mg_relation.csv: Has the list of the movie to genre relation, Contains MovieId and related Genre<br>
->>new_movies.csv: Movies after they have been changed to create a more consistent delimeter ( we used the csv format )<br>
->>ratings.7z: zipped form of ratings so it can be uploaded to github. (unzip before use)<br>
->>tags.csv: Tags after they have been changed to csv format for more a more consistent delimeter<br>
->>users.txt: List all the user IDs
+### Data Folder:
+|File | Description|
+|----|-------------|
+|Genres.txt| Has the list of all the 19 genres to be loaded into the database|
+|mg_relation.csv| Has the list of the movie to genre relation, Contains MovieId and related Genre|
+|new_movies.csv| Movies after they have been changed to create a more consistent delimeter ( we used the csv format )|
+|ratings.7z| zipped form of ratings so it can be uploaded to github. (unzip before use)|
+|tags.csv| Tags after they have been changed to csv format for more a more consistent delimeter|
+|users.txt| List all the user IDs|
 
 >
 ## List all the tables:
