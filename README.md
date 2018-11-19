@@ -45,7 +45,7 @@ _____________
 
 ## What is in this github?
 ### Data Folder:
-|File | Description|
+|File|Description|
 |----|-------------|
 |Genres.txt| Has the list of all the 19 genres to be loaded into the database|
 |mg_relation.csv| Has the list of the movie to genre relation, Contains MovieId and related Genre|
@@ -54,7 +54,19 @@ _____________
 |tags.csv| Tags after they have been changed to csv format for more a more consistent delimeter|
 |users.txt| List all the user IDs|
 
->
+### Sql Folder:
+|File|Description|
+|----|-------------|
+|tyung-init.sql|Sql code for created and loading the database|
+|tyung-query.sql|All of the sql code for testing the database|
+
+### OldText:
+|File|Description|
+|----|-------------|
+|movies.txt|Old movie file with conflicting delimeters|
+|tags.txt|Old tags file with conflicting delimeters|
+|make_files.py|Script to split and transform the old files into files with csv format|
+
 ## List all the tables:
  Schema |   Name    | Type  | Owner |    Size    | Description 
 --------|-----------|-------|-------|----------- |--------------
