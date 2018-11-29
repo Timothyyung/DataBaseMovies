@@ -316,21 +316,47 @@ ________
 
 ### Find the difference between a user's rating and the average rating of the movie he has rated.
 
-<p>create table ratings_with_diff as (select ratings.movieid,ratings.userid,ratings.rating,ratings.timestamp,avg.avgrating, (ratings.rating - avg.avgrating) as difrating
-from ratings,
-(select movieid, (sum(rating)/count(rating)) as avgrating
-from ratings group by movieid) as avg
-where avg.movieid = ratings.movieid
-order by ratings.movieid);</p>
+create table ratings_with_diff as (select ratings.movieid,ratings.userid,ratings.rating,ratings.timestamp,avg.avgrating, (ratings.rating - avg.avgrating) as difrating<br>
+from ratings,<br>
+(select movieid, (sum(rating)/count(rating)) as avgrating<br>
+from ratings group by movieid) as avg<br>
+where avg.movieid = ratings.movieid<br>
+order by ratings.movieid);<br>
 
-
-
-### Update the rating of users whose rating difference (absolute value) is > 3 in a new table and find the new difference between a user's rating and the average rating of the movie he has rated. (merged 2 and 3 together)
+### Update the rating of users and find new difference 
+create table ratings_with_diff_2 as (select ratings.movieid,ratings.userid,ratings.rating,ratings.timestamp,avg.avgrating, (ratings.rating - avg.avgrating) as difrating<br>
+from ratings_with_diff as ratings,<br>
+(select movieid, (sum(rating)/count(rating)) as avgrating<br>
+from ratings group by movieid) as avg<br>
+where avg.movieid = ratings.movieid and (difrating < 3 and difrating > -3)<br>
+order by ratings.movieid);<br>
 
 ### Repeat the Update
 
-### Find the average rating for each movie before the de-biasing (look it up from the ratings table) and the average rating for each movie after the de-biasing (look it up from the ratings_with_diff table). List the top 10 movies that have the biggest difference between these two average ratings! (These are the movies that had the most biaed ratings.)
-Display the movie ids, movie titles, avg_rating before and avg_rating after the debiasing.
+Repeat the sql above replacing diff_2 with diff_3 and 
+
+### Find the average rating for each movie before the de-biasing
+
+select moviename, r1.movieid, r1.avgrating, r2.avgrating, abs(r1.avgrating - r2.avgrating) as brating
+from ( select movieid, avg(rating) as avgrating from ratings_with_diff group by movieid) as r1,
+(select movieid, avg(rating) as avgrating from ratings_with_diff_2 group by movieid) as r2,
+movies
+where r1.movieid = r2.movieid and r1.movieid = movies.movieid
+order by brating desc
+limit 10;
+                                  moviename                                  | movieid |    avgrating     |    avgrating     |      |brating      
+|-----------------------------------------------------------------------------|---------|-----------------|------------------|-------------------|
+| Human Condition I, The (Ningen no joken I)                                  |    8484 |          3.59375 | 4.30769230769231 | 0.713942307692307|
+| Predictions of Fire (Prerokbe Ognja)                                        |    6677 |                2 |              1.4 |               0.6|
+| Time Changer                                                                |    5793 | 1.92857142857143 | 1.41666666666667 | 0.511904761904762|
+| Bizarre, Bizarre (Drôle de drame ou L'étrange aventure de Docteur Molyneux) |    6397 |           3.5625 |                4 |            0.4375|
+| Kid Brother, The                                                            |    8423 | 3.55882352941176 | 3.96666666666667 | 0.407843137254902|
+| Holy Mountain, The (Montaña sagrada, La)                                    |   26326 |             4.05 | 4.44444444444444 | 0.394444444444445|
+| Samurai Rebellion ,Jôi-uchi: Hairyô tsuma shimatsu)                         |   41627 |             4.05 | 4.44444444444444 | 0.394444444444445|
+ |Cruel Romance, A (Zhestokij Romans)                                         |    5889 | 3.55555555555556 |           3.9375 | 0.381944444444445|
+| Accattone                                                                   |    6599 | 3.64285714285714 |             4.02 | 0.377142857142857|
+| Crowd, The                                                                  |   25766 | 3.71666666666667 | 4.07407407407407 | 0.357407407407408|
+
 
  
 
