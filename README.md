@@ -246,11 +246,52 @@ _________
 
 ### Find the highest reviewed movie (movie with the most 5-star reviews). Show the movie id, movie title and the number of reviews.
 
+>select movieid, moviename,count(CASE WHEN rating = 5 THEN 1 END) as fcount<br>
+>from ratings natural join movies<br>
+>group by movieid, moviename<br>
+>order by fcount  DESC<br>
+>limit 1;<br>
+
+| movieid |         moviename         | fcount| 
+|---------|---------------------------|--------|
+|     318 | Shawshank Redemption, The |  16460 |
+
 ### Find the number of movies that are associated with at least 4 different genres.
+
+>select count(*)<br>
+>from has_genre natural join movies<br>
+>having count(genre) > 4;<br>
+
+| count |
+|-------|
+| 21564 |
+
 
 ### Find the most popular genre across all movies.
 
+>select genre, count(genre)<br>
+>from has_genre natural join movies<br>
+>group by genre<br>
+>order by count(genre) desc<br>
+>limit 1;<br>
+
+| genre | count |
+|-------|-------|
+| Drama |  5339 |
+
 ### Find the genres that are associated with the best reviews (genres of movies that have more high ratings than low ratings). Display the genre, the number of high ratings (>=4.0) and the number of low ratings (< 4.0).
+>select genre, count(CASE WHEN rating > 4 THEN 1 END) as highrating, count(CASE WHEN rating < 4 THEN 1 END) as lowrating<br>
+>from movies natural join has_genre natural join ratings<br>
+>group by genre;<br>
+>limit 1;<br>
+
+|         genre          | highrating | lowrating| 
+|------------------------|------------|-----------|
+| Action                 |     529781 |   1539824|
+
+
+
+
 
 ### Find the genres that are associated with the most recent movies (genres that have more recent movies than old movies). Display the genre, the number of recent movies (>=2000) and the number of old movies (< 2000).
  
