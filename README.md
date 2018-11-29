@@ -344,7 +344,7 @@ movies
 where r1.movieid = r2.movieid and r1.movieid = movies.movieid
 order by brating desc
 limit 10;
-                                  moviename                                  | movieid |    avgrating     |    avgrating     |      |brating      
+                                  moviename                                  | movieid |    avgrating     |    avgrating     |      brating      |
 |-----------------------------------------------------------------------------|---------|-----------------|------------------|-------------------|
 | Human Condition I, The (Ningen no joken I)                                  |    8484 |          3.59375 | 4.30769230769231 | 0.713942307692307|
 | Predictions of Fire (Prerokbe Ognja)                                        |    6677 |                2 |              1.4 |               0.6|
