@@ -337,25 +337,27 @@ Repeat the sql above replacing diff_2 with diff_3 and
 
 ### Find the average rating for each movie before the de-biasing
 
-select moviename, r1.movieid, r1.avgrating, r2.avgrating, abs(r1.avgrating - r2.avgrating) as brating
-from ( select movieid, avg(rating) as avgrating from ratings_with_diff group by movieid) as r1,
-(select movieid, avg(rating) as avgrating from ratings_with_diff_2 group by movieid) as r2,
-movies
-where r1.movieid = r2.movieid and r1.movieid = movies.movieid
-order by brating desc
-limit 10;
-|                                  moviename                                  | movieid |    avgrating     |    avgrating     |      brating      |
-|-----------------------------------------------------------------------------|---------|-----------------|------------------|-------------------|
-| Human Condition I, The (Ningen no joken I)                                  |    8484 |          3.59375 | 4.30769230769231 | 0.713942307692307|
-| Predictions of Fire (Prerokbe Ognja)                                        |    6677 |                2 |              1.4 |               0.6|
-| Time Changer                                                                |    5793 | 1.92857142857143 | 1.41666666666667 | 0.511904761904762|
-| Bizarre, Bizarre (Drôle de drame ou L'étrange aventure de Docteur Molyneux) |    6397 |           3.5625 |                4 |            0.4375|
-| Kid Brother, The                                                            |    8423 | 3.55882352941176 | 3.96666666666667 | 0.407843137254902|
-| Holy Mountain, The (Montaña sagrada, La)                                    |   26326 |             4.05 | 4.44444444444444 | 0.394444444444445|
-| Samurai Rebellion ,Jôi-uchi: Hairyô tsuma shimatsu)                         |   41627 |             4.05 | 4.44444444444444 | 0.394444444444445|
- |Cruel Romance, A (Zhestokij Romans)                                         |    5889 | 3.55555555555556 |           3.9375 | 0.381944444444445|
-| Accattone                                                                   |    6599 | 3.64285714285714 |             4.02 | 0.377142857142857|
-| Crowd, The                                                                  |   25766 | 3.71666666666667 | 4.07407407407407 | 0.357407407407408|
+select moviename, r1.movieid, r1.avgrating, r2.avgrating, abs(r1.avgrating - r2.avgrating) as brating<br>
+from ( select movieid, avg(rating) as avgrating from ratings_with_diff group by movieid) as r1,<br>
+(select movieid, avg(rating) as avgrating from ratings_with_diff_2 group by movieid) as r2,<br>
+movies<br>
+where r1.movieid = r2.movieid and r1.movieid = movies.movieid<br>
+order by brating desc<br>
+limit 10;<br>
+
+
+|                                  moviename           | movieid |    avgrating     |    avgrating     |      brating |
+|------------------------------------------------------|---------|----------------- |------------------|--------------|
+| Human Condition I, The (Ningen no joken I)           |    8484 |          3.59375 | 4.30769230769231 | 0.713942307692307|
+| Predictions of Fire (Prerokbe Ognja)                   |    6677 |                2 |              1.4 |               0.6|
+| Time Changer                                               |    5793 | 1.92857142857143 | 1.41666666666667 | 0.511904761904762|
+| Bizarre, Bizarre (Drôle de drame ou L'étrange aventure de Docteur Molyneux) |    6397 |     3.5625 |     4 |        0.4375|
+| Kid Brother, The                                         |    8423 | 3.55882352941176 | 3.96666666666667 | 0.407843137254902|
+| Holy Mountain, The (Montaña sagrada, La)                |   26326 |             4.05 | 4.44444444444444 | 0.394444444444445|
+| Samurai Rebellion ,Jôi-uchi: Hairyô tsuma shimatsu)   |   41627 |             4.05 | 4.44444444444444 | 0.394444444444445|
+| Cruel Romance, A (Zhestokij Romans)                   |    5889 | 3.55555555555556 |           3.9375 | 0.381944444444445|
+| Accattone                                           |    6599 | 3.64285714285714 |             4.02 | 0.377142857142857|
+| Crowd, The                                            |   25766 | 3.71666666666667 | 4.07407407407407 | 0.357407407407408|
 
 
  
