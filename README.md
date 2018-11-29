@@ -280,14 +280,20 @@ _________
 | Drama |  5339 |
 
 ### Find the genres that are associated with the best reviews (genres of movies that have more high ratings than low ratings). Display the genre, the number of high ratings (>=4.0) and the number of low ratings (< 4.0).
+>select genre,highrating,lowrating,(highrating/lowrating) as ratingratio<br>
+>from(<br>
 >select genre, count(CASE WHEN rating > 4 THEN 1 END) as highrating, count(CASE WHEN rating < 4 THEN 1 END) as lowrating<br>
 >from movies natural join has_genre natural join ratings<br>
->group by genre;<br>
->limit 1;<br>
+>group by genre<br>
+>) as t1<br>
+>order by ratingratio desc;<br>
+>limit 1 <br>
 
-|         genre          | highrating | lowrating| 
-|------------------------|------------|-----------|
-| Action                 |     529781 |   1539824|
+
+ |        genre          | highrating | lowrating | ratingratio| 
+ |-----------------------|------------|-----------|------------|
+ |Film-Noir              |      49741 |     36917 |           1|
+
 
 
 ### Find the genres that are associated with the most recent movies (genres that have more recent movies than old movies). Display the genre, the number of recent movies (>=2000) and the number of old movies (< 2000).
