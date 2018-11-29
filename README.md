@@ -230,6 +230,8 @@ There are no instances of both no tags and no reviews ( we summed up the values 
 
 _________
 ## Using the Data Base
+_______
+## General Queries
 
 ### Find the most reviewed movie (that is, the movie with the highest number of reviews). Show the movie id, movie title and the number of reviews.
 >select movieid, moviename, count(rating)<br>
@@ -309,7 +311,26 @@ _________
 |-------------|--------|-----|--------|
 | Documentary |    252 | 230 |      1 |
 
+________
+## DeBiasing
 
+### Find the difference between a user's rating and the average rating of the movie he has rated.
+
+<p>create table ratings_with_diff as (select ratings.movieid,ratings.userid,ratings.rating,ratings.timestamp,avg.avgrating, (ratings.rating - avg.avgrating) as difrating
+from ratings,
+(select movieid, (sum(rating)/count(rating)) as avgrating
+from ratings group by movieid) as avg
+where avg.movieid = ratings.movieid
+order by ratings.movieid);</p>
+
+
+
+### Update the rating of users whose rating difference (absolute value) is > 3 in a new table and find the new difference between a user's rating and the average rating of the movie he has rated. (merged 2 and 3 together)
+
+### Repeat the Update
+
+### Find the average rating for each movie before the de-biasing (look it up from the ratings table) and the average rating for each movie after the de-biasing (look it up from the ratings_with_diff table). List the top 10 movies that have the biggest difference between these two average ratings! (These are the movies that had the most biaed ratings.)
+Display the movie ids, movie titles, avg_rating before and avg_rating after the debiasing.
 
  
 
