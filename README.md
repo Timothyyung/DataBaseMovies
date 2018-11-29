@@ -290,9 +290,20 @@ _________
 | Action                 |     529781 |   1539824|
 
 
-
-
-
 ### Find the genres that are associated with the most recent movies (genres that have more recent movies than old movies). Display the genre, the number of recent movies (>=2000) and the number of old movies (< 2000).
+
+>select genre,recent,old,(recent/old) as rratio<br>
+>from( select genre, count(CASE WHEN year >= 2000 THEN 1 END) as recent, count(CASE WHEN year < 2000 THEN 1 END) as old<br>
+>  from movies natural join has_genre<br>
+>  group by genre)<br>
+>order by rratio desc<br>
+>limit 1; <br>
+
+|    genre    | recent | old | rratio |
+|-------------|--------|-----|--------|
+| Documentary |    252 | 230 |      1 |
+
+
+
  
 
