@@ -33,15 +33,15 @@ CREATE TABLE users(
 	userid integer PRIMARY KEY
 );
 
-\COPY ratings FROM '/home/scott/Documents/DataBaseMovies/ratings.txt' with delimiter ':';
+\COPY ratings FROM '/home/scott/Documents/DataBaseMovies/Data/ratings.txt' with delimiter ':';
 
-\COPY has_genre FROM '/home/scott/Documents/DataBaseMovies/mg_relation.csv' DELIMITERS ',' csv;
+\COPY has_genre FROM '/home/scott/Documents/DataBaseMovies/Data/mg_relation.csv' DELIMITERS ',' csv;
 
-\COPY movies FROM '/home/scott/Documents/DataBaseMovies/new_movies.csv' DELIMITERS ',' csv;
+\COPY movies FROM '/home/scott/Documents/DataBaseMovies/Data/new_movies.csv' DELIMITERS ',' csv;
 
-\COPY tags FROM '/home/scott/Documents/DataBaseMovies/tags.csv' with delimiter ',';
-\COPY genre FROM '/home/scott/Documents/DataBaseMovies/genres.txt';
-\COPY users FROM '/home/scott/Documents/DataBaseMovies/users.txt';
+\COPY tags FROM '/home/scott/Documents/DataBaseMovies/Data/tags.csv' with delimiter ',';
+\COPY genre FROM '/home/scott/Documents/DataBaseMovies/Data/genres.txt';
+\COPY users FROM '/home/scott/Documents/DataBaseMovies/Data/users.txt';
 
 
 
