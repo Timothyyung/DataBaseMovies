@@ -227,5 +227,31 @@ where exists (select movieid from ratings group by ratings.movieid having rating
 |Ratings and Tags| 7597 |select count(distinct movieid)from movies where exists (select movieid from ratings group by ratings.movieid having ratings.movieid = movies.movieid) and exists ( select movieid from tags group by tags.movieid having tags.movieid = movies.movieid);|
 
 There are no instances of both no tags and no reviews ( we summed up the values in the table and got 10681 )
+
+_________
+## Using the Data Base
+
+### Find the most reviewed movie (that is, the movie with the highest number of reviews). Show the movie id, movie title and the number of reviews.
+>select movieid, moviename, count(rating)<br>
+>from ratings natural join movies<br>
+>group by movieid, moviename<br>
+>order by count(rating) DESC<br>
+>limit 1;<br>
+
+| movieid |  moviename   | count| 
+|---------|--------------|-------|
+|    296 | Pulp Fiction | 34864 |
+
+
+
+### Find the highest reviewed movie (movie with the most 5-star reviews). Show the movie id, movie title and the number of reviews.
+
+### Find the number of movies that are associated with at least 4 different genres.
+
+### Find the most popular genre across all movies.
+
+### Find the genres that are associated with the best reviews (genres of movies that have more high ratings than low ratings). Display the genre, the number of high ratings (>=4.0) and the number of low ratings (< 4.0).
+
+### Find the genres that are associated with the most recent movies (genres that have more recent movies than old movies). Display the genre, the number of recent movies (>=2000) and the number of old movies (< 2000).
  
 
