@@ -1,5 +1,5 @@
 select * from movies limit 5;
-select count(moviename) from movies;
+select count(title) from movies;
 select * from movies order by year desc limit 5;
 select * from movies order by year limit 5;
 select count(year) from movies;
