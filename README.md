@@ -404,7 +404,47 @@ limit 10;<br>
 |Crowd  The                          |   25766 | 3.71666666666667 | 4.03833333333333 | 0.321666666666666|
 |Odd Man Out                            |   25930 | 3.88636363636364 | 4.19421487603306 | 0.307851239669422|
 
+### Top 10 Most bias users
+
+#### Sql code 
+>select userid, count(userid)<br>
+>from ratings_with_diff<br>
+>where abs(difrating) > 3<br>
+>group by userid<br>
+>order by count(userid) desc<br>
+>limit 10;
+
+#### Results
+
+| userid | count |
+|--------|-------|
+|  59342 |   223|
+|  46059 |   175|
+|  43039 |   156|
+|  38527 |   143|
+|  38410 |   123|
+|  19669 |    98|
+|  23799 |    94|
+|  26150 |    92|
+|   9568 |    82|
+|  23159 |    81|
 
 
+
+## Analysis and Retrospective
+
+### Assumptions I made E/R design
+
+For the most part I assume that many of the movies would have at least one or more genres and that the data would be consistent with the tables. Most of the data would have many to many relationships with each other. 
+
+### Errors/duplicates/redundancy you encountered when testing your database
+
+One of the key things I noticed when doing the last query in which I had to create a new table for ratings_with_diff is that the average was written multiple times( the average was repeated quite a bit and could have been removed )
+
+### Indexing and run Time
+ any benefit from using indexes and in what cases they helped
+ lternatives that you considered to improve the run time of your operations
+ 
+### Challenges 
  
 
