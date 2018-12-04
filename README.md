@@ -244,7 +244,16 @@ _______
 |---------|--------------|-------|
 |    296 | Pulp Fiction | 34864 |
 
+### Without Index Plan and Execution time
+Planning time: 163.591 ms<br>
+Execution time: 28186.149 ms
 
+### With Index on Movieid
+
+Planning time: 0.318 ms<br>
+Execution time: 13466.288 ms
+
+Seems like the Index on movieid increased the performance by alot, This is becasue we are grouping by movieid and having a faster search for the movieid would allow us to do the aggrate functions faster.
 
 ### Find the highest reviewed movie (movie with the most 5-star reviews). Show the movie id, movie title and the number of reviews.
 
@@ -257,6 +266,15 @@ _______
 | movieid |         moviename         | fcount| 
 |---------|---------------------------|--------|
 |     318 | Shawshank Redemption, The |  16460 |
+
+### Without Index Plan and Execution time
+Planning time: 0.552 ms<br>
+Execution time: 12586.902 ms
+
+### With Index on Movieid in both ratings and movies tables
+Planning time: 1.371 ms<br>
+Execution time: 4019.965 ms
+
 
 ### Find the number of movies that are associated with at least 4 different genres.
 
@@ -296,6 +314,15 @@ _______
  |-----------------------|------------|-----------|------------|
  |Film-Noir              |      49741 |     36917 |           1|
 
+### Without Index Plan and Execution time
+Planning time: 0.841 ms<br>
+Execution time: 8209.304 ms
+
+
+### With Index on Movieid in both ratings and movies tables
+Planning time: 2.766 ms<br>
+Execution time: 7692.015 ms
+
 
 
 ### Find the genres that are associated with the most recent movies (genres that have more recent movies than old movies). Display the genre, the number of recent movies (>=2000) and the number of old movies (< 2000).
@@ -310,6 +337,16 @@ _______
 |    genre    | recent | old | rratio |
 |-------------|--------|-----|--------|
 | Documentary |    252 | 230 |      1 |
+
+### Without Index Plan and Execution time
+Planning time: 0.664 ms<br>
+Execution time: 24.738 ms
+
+
+### With Index on Movieid in both ratings and movies tables
+Planning time: 0.603 ms<br>
+Execution time: 24.012 ms
+
 
 ________
 ## DeBiasing
