@@ -361,16 +361,24 @@ where avg.movieid = ratings.movieid<br>
 order by ratings.movieid);<br>
 
 ### Update the rating of users and find new difference 
-create table ratings_with_diff_2 as (select ratings.movieid,ratings.userid,ratings.rating,ratings.timestamp,avg.avgrating, (ratings.rating - avg.avgrating) as difrating<br>
+
+update ratings_with_diff <br>
+set rating = ratings_with_diff.avgrating<br>
+where abs(difrating) > 3;
+
+### Create New Ratings table
+
+create table ratings_with_diff_2 as (select ratings.movieid,ratings.userid,ratings.rating,ratings.time,avg.avgrating, (ratings.rating - avg.avgrating) as difrating <br>
 from ratings_with_diff as ratings,<br>
 (select movieid, (sum(rating)/count(rating)) as avgrating<br>
-from ratings group by movieid) as avg<br>
-where avg.movieid = ratings.movieid and (difrating < 3 and difrating > -3)<br>
-order by ratings.movieid);<br>
+from ratings_with_diff group by movieid) as avg<br>
+where avg.movieid = ratings.movieid<br>
+order by ratings.movieid);
+
 
 ### Repeat the Update
 
-Repeat the sql above replacing diff_2 with diff_3 and 
+Repeat the above steps for x iterations 
 
 ### Find the average rating for each movie before the de-biasing
 
