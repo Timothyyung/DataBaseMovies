@@ -383,18 +383,19 @@ order by brating desc<br>
 limit 10;<br>
 
 
-|                                  moviename           | movieid |    avgrating     |    avgrating     |      brating |
-|------------------------------------------------------|---------|----------------- |------------------|--------------|
-| Human Condition I, The (Ningen no joken I)           |    8484 |          3.59375 | 4.30769230769231 | 0.713942307692307|
-| Predictions of Fire (Prerokbe Ognja)                   |    6677 |                2 |              1.4 |               0.6|
-| Time Changer                                               |    5793 | 1.92857142857143 | 1.41666666666667 | 0.511904761904762|
-| Bizarre, Bizarre (Drôle de drame ou L'étrange aventure de Docteur Molyneux) |    6397 |     3.5625 |     4 |        0.4375|
-| Kid Brother, The                                         |    8423 | 3.55882352941176 | 3.96666666666667 | 0.407843137254902|
-| Holy Mountain, The (Montaña sagrada, La)                |   26326 |             4.05 | 4.44444444444444 | 0.394444444444445|
-| Samurai Rebellion ,Jôi-uchi: Hairyô tsuma shimatsu)   |   41627 |             4.05 | 4.44444444444444 | 0.394444444444445|
-| Cruel Romance, A (Zhestokij Romans)                   |    5889 | 3.55555555555556 |           3.9375 | 0.381944444444445|
-| Accattone                                           |    6599 | 3.64285714285714 |             4.02 | 0.377142857142857|
-| Crowd, The                                            |   25766 | 3.71666666666667 | 4.07407407407407 | 0.357407407407408|
+|             title                                     | movieid |    avgrating     |    avgrating     |    bias|         
+|-------------------------------------------------------|---------|------------------|------------------|--------|
+| Human Condition I  The (Ningen no joken I)            |    8484 |          3.59375 |      4.173828125 | 0.580078125|
+| Time Changer                      |    5793 | 1.92857142857143 | 1.48979591836735 | 0.438775510204082|
+|Bizarre  Bizarre (Drôle de drame ou L'étrange aventure de Docteur Molyneux)  |    6397|3.5625|3.9453125 | 0.3828125|
+| Kid Brother  The                        |    8423 | 3.55882352941176 | 3.91868512110727 | 0.359861591695502|
+|Samurai Rebellion (Jôi-uchi: Hairyô tsuma shimatsu)   |   41627 |             4.05 |            4.405 |       0.355|
+|Holy Mountain  The (Montaña sagrada  La)       |   26326 |             4.05 |            4.405 |           0.355|
+|Cruel Romance  A (Zhestokij Romans)            |    5889 | 3.55555555555556 | 3.89506172839506 | 0.339506172839506|
+|Accattone                   |    6599 | 3.64285714285714 | 3.97959183673469 | 0.336734693877551|
+|Crowd  The                          |   25766 | 3.71666666666667 | 4.03833333333333 | 0.321666666666666|
+|Odd Man Out                            |   25930 | 3.88636363636364 | 4.19421487603306 | 0.307851239669422|
+
 
 
  
