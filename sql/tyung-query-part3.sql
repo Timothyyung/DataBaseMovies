@@ -51,8 +51,17 @@ from ratings group by movieid) as avg
 where avg.movieid = ratings.movieid
 order by ratings.movieid);
 
-DELETE FROM ratings_with_diff
-WHERE difrating > 3 or difrating < -3;
+
+select userid, count(userid)
+from ratings_with_diff
+where abs(difrating) > 3
+group by userid
+order by count(userid) desc
+limit 10;
+
+update ratings_with_diff 
+set rating = ratings_with_diff.avgrating
+where abs(difrating) > 3;
 
 create table ratings_with_diff_2 as (select ratings.movieid,ratings.userid,ratings.rating,ratings.time,avg.avgrating, (ratings.rating - avg.avgrating) as difrating
 from ratings_with_diff as ratings,
@@ -61,8 +70,9 @@ from ratings_with_diff group by movieid) as avg
 where avg.movieid = ratings.movieid
 order by ratings.movieid);
 
-DELETE FROM ratings_with_diff_2 
-where difrating > 3 or difrating < -3;
+update ratings_with_diff_2 
+set rating = ratings_with_diff.avgrating
+where abs(difrating) > 3;
 
 create table ratings_with_diff_3 as (select ratings.movieid,ratings.userid,ratings.rating,ratings.time,avg.avgrating, (ratings.rating - avg.avgrating) as difrating
 from ratings_with_diff_2 as ratings,
