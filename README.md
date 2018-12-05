@@ -446,9 +446,13 @@ I understand it does make the subsequent operations much simpler but it is still
 ### Indexing and run Time
  For the most part by adding indexes on the movieid the run time for most of my queries improved by alot. I would add an index on the movie id on both the ratings table ( this one was very useful since we are doing alot of searches on movie id for many of the problems) and the movies table itself.
  
- For the most part those were the only optimizations I had done to speed up the query process. Other optimizations I had done were to structure my sql queries better by limited the amount of times i would do a cartian product using the exist and in clauses there for limiting the amount of data I would need to join together.
+ For the most part those were the only optimizations I had done to speed up the query process. Other optimizations I had done were to structure my sql queries better by limited the amount of times I would do a cartian product using subqueries to make smaller tables before joining them to the larger one.
  
  One of the key things I that I noticed when I swaped to using the dump file was that in my version of the database I declared primary keys which in postgres ment it would automatically index by those keys. While it was nice, those indexes actually cannot be dropped. I was able to to full experimentation on the indecies after I switched to the dump file.
+
+## The percentage of unknown values in your attributes
+
+To my knowledge there wasnt any unknown values in this data set
  
 ### Challenges 
  
