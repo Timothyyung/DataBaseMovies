@@ -448,6 +448,12 @@ I understand it does make the subsequent operations much simpler but it is still
  
  For the most part those were the only optimizations I had done to speed up the query process. Other optimizations I had done were to structure my sql queries better by limited the amount of times i would do a cartian product using the exist and in clauses there for limiting the amount of data I would need to join together.
  
+ One of the key things I that I noticed when I swaped to using the dump file was that in my version of the database I declared primary keys which in postgres ment it would automatically index by those keys. While it was nice, those indexes actually cannot be dropped. I was able to to full experimentation on the indecies after I switched to the dump file.
+ 
 ### Challenges 
  
 For me I spent the most time cleaning the data using the python scripts. I thought it was interesting how to use regex and string matching to find the patterns and reconstruct them in a way to allow it to be read into my database. Aside from that some of the other struggles I had was matching the output to be the same as the ones given (mostly for the last question) as I initially debiased the data in a different way. ( First attempt was deleting the rows, Second attempt was to set them to 3.5)
+
+One of the other more challenging queries was filtering the data by decade. While the sql query was relativly simpler than the ones in phase 3, it took me a while to figure out how to limit to the first 3 charaters of the year. In the end I did
+
+year - (year%10) this took the year and subtracted the last digit to get the decade.
