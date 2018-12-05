@@ -59,6 +59,8 @@ _____________
 |----|-------------|
 |tyung-init.sql|Sql code for created and loading the database|
 |tyung-query.sql|All of the sql code for testing the database|
+|tyung-query-part2.sql|Code For part 2 focused on testing the database|
+|tyung-query-part3.sql|Code For part 3 focused on USING the database|
 
 ### OldText:
 |File|Description|
