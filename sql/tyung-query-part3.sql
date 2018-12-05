@@ -71,7 +71,7 @@ where avg.movieid = ratings.movieid
 order by ratings.movieid);
 
 update ratings_with_diff_2 
-set rating = ratings_with_diff.avgrating
+set rating = ratings_with_diff_2.avgrating
 where abs(difrating) > 3;
 
 create table ratings_with_diff_3 as (select ratings.movieid,ratings.userid,ratings.rating,ratings.time,avg.avgrating, (ratings.rating - avg.avgrating) as difrating
