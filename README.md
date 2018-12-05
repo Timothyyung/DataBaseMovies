@@ -435,16 +435,19 @@ limit 10;<br>
 
 ### Assumptions I made E/R design
 
-For the most part I assume that many of the movies would have at least one or more genres and that the data would be consistent with the tables. Most of the data would have many to many relationships with each other. 
+For the most part I assume that many of the movies would have at least one or more genres and that the data would be consistent with the tables. Most of the data would have many to many relationships with each other. Otherwise I thought contructing the E/R diagram was pretty straight forward.
 
 ### Errors/duplicates/redundancy you encountered when testing your database
 
-One of the key things I noticed when doing the last query in which I had to create a new table for ratings_with_diff is that the average was written multiple times( the average was repeated quite a bit and could have been removed )
+One of the key things I noticed when doing the last query in which I had to create a new table for ratings_with_diff is that the average was written multiple times( the average was repeated quite a bit and could have been removed ) 
+
+I understand it does make the subsequent operations much simpler but it is still considered redundant data and may cause issues if the data set were to be large enough,
 
 ### Indexing and run Time
- any benefit from using indexes and in what cases they helped
- lternatives that you considered to improve the run time of your operations
+ For the most part by adding indexes on the movieid the run time for most of my queries improved by alot. I would add an index on the movie id on both the ratings table ( this one was very useful since we are doing alot of searches on movie id for many of the problems) and the movies table itself.
+ 
+ For the most part those were the only optimizations I had done to speed up the query process. Other optimizations I had done were to structure my sql queries better by limited the amount of times i would do a cartian product using the exist and in clauses there for limiting the amount of data I would need to join together.
  
 ### Challenges 
  
-
+For me I spent the most time cleaning the data using the python scripts. I thought it was interesting how to use regex and string matching to find the patterns and reconstruct them in a way to allow it to be read into my database. Aside from that some of the other struggles I had was matching the output to be the same as the ones given (mostly for the last question) as I initially debiased the data in a different way. ( First attempt was deleting the rows, Second attempt was to set them to 3.5)
