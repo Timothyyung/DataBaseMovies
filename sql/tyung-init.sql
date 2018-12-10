@@ -1,6 +1,6 @@
 CREATE TABLE movies(
 	movieid integer PRIMARY KEY,
-	moviename text,
+	title text,
 	year integer
 );
 
