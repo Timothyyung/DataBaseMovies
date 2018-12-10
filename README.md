@@ -59,6 +59,8 @@ _____________
 |----|-------------|
 |tyung-init.sql|Sql code for created and loading the database|
 |tyung-query.sql|All of the sql code for testing the database|
+|tyung-query-part2.sql|Code For part 2 focused on testing the database|
+|tyung-query-part3.sql|Code For part 3 focused on USING the database|
 
 ### OldText:
 |File|Description|
@@ -446,8 +448,18 @@ I understand it does make the subsequent operations much simpler but it is still
 ### Indexing and run Time
  For the most part by adding indexes on the movieid the run time for most of my queries improved by alot. I would add an index on the movie id on both the ratings table ( this one was very useful since we are doing alot of searches on movie id for many of the problems) and the movies table itself.
  
- For the most part those were the only optimizations I had done to speed up the query process. Other optimizations I had done were to structure my sql queries better by limited the amount of times i would do a cartian product using the exist and in clauses there for limiting the amount of data I would need to join together.
+ For the most part those were the only optimizations I had done to speed up the query process. Other optimizations I had done were to structure my sql queries better by limited the amount of times I would do a cartian product using subqueries to make smaller tables before joining them to the larger one.
+ 
+ One of the key things I that I noticed when I swaped to using the dump file was that in my version of the database I declared primary keys which in postgres ment it would automatically index by those keys. While it was nice, those indexes actually cannot be dropped. I was able to to full experimentation on the indecies after I switched to the dump file.
+
+## The percentage of unknown values in your attributes
+
+To my knowledge there wasnt any unknown values in this data set
  
 ### Challenges 
  
 For me I spent the most time cleaning the data using the python scripts. I thought it was interesting how to use regex and string matching to find the patterns and reconstruct them in a way to allow it to be read into my database. Aside from that some of the other struggles I had was matching the output to be the same as the ones given (mostly for the last question) as I initially debiased the data in a different way. ( First attempt was deleting the rows, Second attempt was to set them to 3.5)
+
+One of the other more challenging queries was filtering the data by decade. While the sql query was relativly simpler than the ones in phase 3, it took me a while to figure out how to limit to the first 3 charaters of the year. In the end I did
+
+year - (year%10) this took the year and subtracted the last digit to get the decade.
