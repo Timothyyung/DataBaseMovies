@@ -1015,7 +1015,7 @@
 1033:Fox and the Hound, The (1981):Animation|Children|Drama
 1034:Freeway (1996):Comedy|Crime|Drama|Thriller
 1035:Sound of Music, The (1965):Musical|Romance
-1036:Die Hard (1988),Action|Crime|Thriller
+1036:Die Hard (1988):Action|Crime|Thriller
 1037:Lawnmower Man, The (1992):Action|Horror|Sci-Fi|Thriller
 1038:Unhook the Stars (1996):Drama
 1039:Synthetic Pleasures (1995):Documentary
