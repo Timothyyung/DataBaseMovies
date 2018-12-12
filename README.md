@@ -41,7 +41,9 @@ _____________
 1) Generate the new files by running the make_files.py script in the old data folder (These files are already in the Data folder)</br>
 2) Unzip the ratings file ( the file is too large to import into github normally )
 3) Rename the paths in the copy command located in tyung-init.sql to the paths of the files on local computer. tyung-init.sql generates the tables and populates them
-4) Run tyung-query.sql to run all the set up queries.
+4) Run tyung-init.sql to run all the set up queries.
+5) Run the tyung-query-part2.sql for part 2 code
+6) Run the tyung-query-part3.sql for part 3 code
 
 ## What is in this github?
 ### Data Folder:
@@ -58,7 +60,6 @@ _____________
 |File|Description|
 |----|-------------|
 |tyung-init.sql|Sql code for created and loading the database|
-|tyung-query.sql|All of the sql code for testing the database|
 |tyung-query-part2.sql|Code For part 2 focused on testing the database|
 |tyung-query-part3.sql|Code For part 3 focused on USING the database|
 
